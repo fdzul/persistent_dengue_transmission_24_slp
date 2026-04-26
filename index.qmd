@@ -10,6 +10,387 @@ theme: custom.scss
 
 ::: panel-tabset
 
+### [**San Luis Potosí**]{style="color:#990000"}
+
+```{=html}
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Contenedor principal con scroll - tres COLUMNAS */
+.responsive-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;  /* Tres COLUMNAS iguales */
+  gap: 25px;
+  margin: 20px 0;
+  max-height: 85vh;          /* Altura máxima para scroll */
+  overflow-y: auto;          /* Scroll vertical */
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  background-color: #fafafa;
+  align-items: start;
+}
+
+/* Cada columna es un contenedor flexible que apila sus elementos */
+.columna {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Título de columna */
+.column-header {
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: center;
+  padding: 8px;
+  background-color: #772953;
+  color: white;
+  border-radius: 6px;
+  margin: 0;
+}
+
+/* Estilo para cada tarjeta de mapa */
+.grid-card {
+  border: 1px solid #e0e0e0;
+  padding: 15px;
+  border-radius: 12px;
+  background: white;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.grid-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+/* Asegura que los mapas tengan tamaño consistente */
+.grid-card .html-widget,
+.grid-card iframe {
+  width: 240% !important;
+  height: 400px !important;
+  border-radius: 8px;
+}
+
+/* Responsive: en móviles, una sola columna */
+@media (max-width: 768px) {
+  .responsive-grid {
+    grid-template-columns: 1fr;  /* Una columna en móvil */
+    max-height: 70vh;
+    gap: 15px;
+    padding: 24px;
+  }
+  .column-header {
+    font-size: 1rem;
+  }
+  .grid-card .html-widget,
+  .grid-card iframe {
+    height: 300px !important;
+  }
+}
+</style>
+```
+::::::::::::::::::::: responsive-grid
+
+<!-- COLUMNA 1: Distribución de Casos --><div class="columna"><div class="column-header"> 📊 DISTRIBUCIÓN DE CASOS POR SEMANA EPIDEMIOLÓGICA </div><!--
+
+<!-- MAPA 3 (Fila 1, columna 1 - Casos) -->
+::: grid-card
+2023-2025
+
+```{r casos_2023_2025,echo=FALSE}
+load("~/Library/CloudStorage/Dropbox/hotspots_2025/8.RData/denmex_chains.RData")
+source("~/Library/CloudStorage/Dropbox/r_developments/r_dashboards/netlify/1.2.persisten_dengue_transmission_2026/persistent_dengue_transmission_24_slp/mp_transmission_chains.R")
+source("~/Library/CloudStorage/Dropbox/r_developments/r_dashboards/netlify/1.2.persisten_dengue_transmission_2026/persistent_dengue_transmission_24_slp/mp_dengue_cases.R")
+library(mapgl)
+library(fishualize)
+library(sf)
+mp_dengue_cases(data = xy,
+                yrs = c(2023:2025),
+                locality = "San Luis Potosí",
+                cve_edo = "24")
+```
+
+:::
+
+
+<!-- MAPA 4 (Fila 2, col = 2 - Casos) -->
+::: grid-card
+2025
+```{r casos_2025,echo=FALSE}
+load("~/Library/CloudStorage/Dropbox/hotspots_2025/8.RData/denmex_chains.RData")
+source("~/Library/CloudStorage/Dropbox/r_developments/r_dashboards/netlify/1.2.persisten_dengue_transmission_2026/persistent_dengue_transmission_24_slp/mp_transmission_chains.R")
+source("~/Library/CloudStorage/Dropbox/r_developments/r_dashboards/netlify/1.2.persisten_dengue_transmission_2026/persistent_dengue_transmission_24_slp/mp_dengue_cases.R")
+library(mapgl)
+library(fishualize)
+library(sf)
+mp_dengue_cases(data = xy,
+                yrs = c(2025),
+                locality = "San Luis Potosí",
+                cve_edo = "24")
+```
+
+:::
+
+<!-- MAPA 4 (Fila 2, col = 2 - Casos) -->
+::: grid-card
+2024
+```{r casos_2024,echo=FALSE}
+load("~/Library/CloudStorage/Dropbox/hotspots_2025/8.RData/denmex_chains.RData")
+source("~/Library/CloudStorage/Dropbox/r_developments/r_dashboards/netlify/1.2.persisten_dengue_transmission_2026/persistent_dengue_transmission_24_slp/mp_transmission_chains.R")
+source("~/Library/CloudStorage/Dropbox/r_developments/r_dashboards/netlify/1.2.persisten_dengue_transmission_2026/persistent_dengue_transmission_24_slp/mp_dengue_cases.R")
+library(mapgl)
+library(fishualize)
+library(sf)
+mp_dengue_cases(data = xy,
+                yrs = 2024,
+                locality = "San Luis Potosí",
+                cve_edo = "24")
+```
+
+:::
+
+
+<!-- MAPA 4 (Fila 2, col = 2 - Casos) -->
+::: grid-card
+2023
+```{r echo=FALSE}
+load("~/Library/CloudStorage/Dropbox/hotspots_2025/8.RData/denmex_chains.RData")
+source("~/Library/CloudStorage/Dropbox/r_developments/r_dashboards/netlify/1.2.persisten_dengue_transmission_2026/persistent_dengue_transmission_24_slp/mp_transmission_chains.R")
+source("~/Library/CloudStorage/Dropbox/r_developments/r_dashboards/netlify/1.2.persisten_dengue_transmission_2026/persistent_dengue_transmission_24_slp/mp_dengue_cases.R")
+library(mapgl)
+library(fishualize)
+library(sf)
+mp_dengue_cases(data = xy,
+                yrs = 2023,
+                locality = "San Luis Potosí",
+                cve_edo = "24")
+```
+
+:::
+
+<!-- MAPA 4 (Fila 2, col = 2 - Casos) -->
+::: grid-card
+2016-2024
+```{r echo=FALSE}
+load("~/Library/CloudStorage/Dropbox/hotspots_2025/8.RData/denmex_chains.RData")
+source("~/Library/CloudStorage/Dropbox/r_developments/r_dashboards/netlify/1.2.persisten_dengue_transmission_2026/persistent_dengue_transmission_24_slp/mp_transmission_chains.R")
+source("~/Library/CloudStorage/Dropbox/r_developments/r_dashboards/netlify/1.2.persisten_dengue_transmission_2026/persistent_dengue_transmission_24_slp/mp_dengue_cases.R")
+library(mapgl)
+library(fishualize)
+library(sf)
+mp_dengue_cases(data = xy,
+                yrs = c(2016:2024),
+                locality = "San Luis Potosí",
+                cve_edo = "24")
+```
+
+:::
+
+</div><!-- COLUMNA 2: Cadenas de Transmisión --><div class="columna"><div class="column-header"> 🔄 CADENAS DE TRANSMISIÓN DE DENGUE </div>
+
+<!-- MAPA 3 (Fila 1, columna 1 - Casos) -->
+::: grid-card
+2023-2025
+```{r chains_2023_2025, echo=FALSE}
+load("~/Library/CloudStorage/Dropbox/hotspots_2025/8.RData/denmex_chains.RData")
+source("~/Library/CloudStorage/Dropbox/r_developments/r_dashboards/netlify/1.2.persisten_dengue_transmission_2026/persistent_dengue_transmission_24_slp/mp_transmission_chains.R")
+source("~/Library/CloudStorage/Dropbox/r_developments/r_dashboards/netlify/1.2.persisten_dengue_transmission_2026/persistent_dengue_transmission_24_slp/mp_dengue_cases.R")
+library(mapgl)
+library(fishualize)
+library(sf)
+
+mp_transmission_chains(data = xy,
+                       yrs = c(2023:2025),
+                       locality = "San Luis Potosí",
+                       cve_edo = "24")
+```
+:::
+
+
+<!-- MAPA 4 (Fila 2, col = 2 - Casos) -->
+::: grid-card
+2025
+```{r chains2025, echo=FALSE}
+load("~/Library/CloudStorage/Dropbox/hotspots_2025/8.RData/denmex_chains.RData")
+source("~/Library/CloudStorage/Dropbox/r_developments/r_dashboards/netlify/1.2.persisten_dengue_transmission_2026/persistent_dengue_transmission_24_slp/mp_transmission_chains.R")
+source("~/Library/CloudStorage/Dropbox/r_developments/r_dashboards/netlify/1.2.persisten_dengue_transmission_2026/persistent_dengue_transmission_24_slp/mp_dengue_cases.R")
+library(mapgl)
+library(fishualize)
+library(sf)
+
+mp_transmission_chains(data = xy,
+                       yrs = c(2024,2025),
+                       locality = "San Luis Potosí",
+                       cve_edo = "24")
+```
+
+:::
+
+<!-- MAPA 4 (Fila 2, col = 2 - Casos) -->
+::: grid-card
+2024
+```{r chains_2024,echo=FALSE}
+load("~/Library/CloudStorage/Dropbox/hotspots_2025/8.RData/denmex_chains.RData")
+source("~/Library/CloudStorage/Dropbox/r_developments/r_dashboards/netlify/1.2.persisten_dengue_transmission_2026/persistent_dengue_transmission_24_slp/mp_transmission_chains.R")
+source("~/Library/CloudStorage/Dropbox/r_developments/r_dashboards/netlify/1.2.persisten_dengue_transmission_2026/persistent_dengue_transmission_24_slp/mp_dengue_cases.R")
+library(mapgl)
+library(fishualize)
+library(sf)
+
+mp_transmission_chains(data = xy,
+                       yrs = 2024,
+                       locality = "San Luis Potosí",
+                       cve_edo = "24")
+```
+
+:::
+
+
+<!-- MAPA 4 (Fila 2, col = 2 - Casos) -->
+::: grid-card
+2023-2024
+```{r chains_2023,echo=FALSE}
+load("~/Library/CloudStorage/Dropbox/hotspots_2025/8.RData/denmex_chains.RData")
+source("~/Library/CloudStorage/Dropbox/r_developments/r_dashboards/netlify/1.2.persisten_dengue_transmission_2026/persistent_dengue_transmission_24_slp/mp_transmission_chains.R")
+source("~/Library/CloudStorage/Dropbox/r_developments/r_dashboards/netlify/1.2.persisten_dengue_transmission_2026/persistent_dengue_transmission_24_slp/mp_dengue_cases.R")
+library(mapgl)
+library(fishualize)
+library(sf)
+
+mp_transmission_chains(data = xy,
+                       yrs = c(2023, 2024),
+                       locality = "San Luis Potosí",
+                       cve_edo = "24")
+```
+
+:::
+
+<!-- MAPA 4 (Fila 2, col = 2 - Casos) -->
+::: grid-card
+2016-2022
+```{r chains_2016_2024,echo=FALSE}
+load("~/Library/CloudStorage/Dropbox/hotspots_2025/8.RData/denmex_chains.RData")
+source("~/Library/CloudStorage/Dropbox/r_developments/r_dashboards/netlify/1.2.persisten_dengue_transmission_2026/persistent_dengue_transmission_24_slp/mp_transmission_chains.R")
+source("~/Library/CloudStorage/Dropbox/r_developments/r_dashboards/netlify/1.2.persisten_dengue_transmission_2026/persistent_dengue_transmission_24_slp/mp_dengue_cases.R")
+library(mapgl)
+library(fishualize)
+library(sf)
+
+mp_transmission_chains(data = xy,
+                       yrs = c(2016:2022),
+                       locality = "San Luis Potosí",
+                       cve_edo = "24")
+```
+
+:::
+
+
+</div><!-- COLUMNA 2: Cadenas de Transmisión --><div class="columna"><div class="column-header"> 🔄 MAPAS DE CALOR </div>
+
+<!-- MAPA 3 (Fila 1, columna 1 - Casos) -->
+::: grid-card
+2023-2025
+```{r heatmap_2023_2025,echo=FALSE}
+# Step 1. load the dataset ####
+load("~/Library/CloudStorage/Dropbox/hotspots_2025/8.RData/denmex_chains.RData")
+
+# Step 2. load the function ####
+source("~/Library/CloudStorage/Dropbox/r_developments/r_dashboards/netlify/1.2.persisten_dengue_transmission_2026/persistent_dengue_transmission_24_slp/mp_heatmap.R")
+library(sf)
+library(mapgl)
+mp_heatmap(geocoded_dataset = xy,
+           yrs = c(2023:2025),
+           cve_edo = "24",
+           locality = "San Luis Potosí")
+```
+:::
+
+
+<!-- MAPA 4 (Fila 2, col = 2 - Casos) -->
+::: grid-card
+2025
+```{r heatmap_2025,echo=FALSE}
+# Step 1. load the dataset ####
+load("~/Library/CloudStorage/Dropbox/hotspots_2025/8.RData/denmex_chains.RData")
+
+# Step 2. load the function ####
+source("~/Library/CloudStorage/Dropbox/r_developments/r_dashboards/netlify/1.2.persisten_dengue_transmission_2026/persistent_dengue_transmission_24_slp/mp_heatmap.R")
+library(sf)
+library(mapgl)
+mp_heatmap(geocoded_dataset = xy,
+           yrs = 2025,
+           cve_edo = "24",
+           locality = "San Luis Potosí")
+```
+
+:::
+
+<!-- MAPA 4 (Fila 2, col = 2 - Casos) -->
+::: grid-card
+2024
+```{r heatmap_2024,echo=FALSE}
+# Step 1. load the dataset ####
+load("~/Library/CloudStorage/Dropbox/hotspots_2025/8.RData/denmex_chains.RData")
+
+# Step 2. load the function ####
+source("~/Library/CloudStorage/Dropbox/r_developments/r_dashboards/netlify/1.2.persisten_dengue_transmission_2026/persistent_dengue_transmission_24_slp/mp_heatmap.R")
+library(sf)
+library(mapgl)
+mp_heatmap(geocoded_dataset = xy,
+           yrs = 2024,
+           cve_edo = "24",
+           locality = "San Luis Potosí")
+```
+
+:::
+
+
+<!-- MAPA 4 (Fila 2, col = 2 - Casos) -->
+::: grid-card
+2023
+```{r heatmap_2023,echo=FALSE}
+# Step 1. load the dataset ####
+load("~/Library/CloudStorage/Dropbox/hotspots_2025/8.RData/denmex_chains.RData")
+
+# Step 2. load the function ####
+source("~/Library/CloudStorage/Dropbox/r_developments/r_dashboards/netlify/1.2.persisten_dengue_transmission_2026/persistent_dengue_transmission_24_slp/mp_heatmap.R")
+library(sf)
+library(mapgl)
+mp_heatmap(geocoded_dataset = xy,
+           yrs = 2023,
+           cve_edo = "24",
+           locality = "San Luis Potosí")
+```
+
+:::
+
+<!-- MAPA 4 (Fila 2, col = 2 - Casos) -->
+::: grid-card
+2016-2024
+```{r heatmap_2016_2024, echo=FALSE}
+# Step 1. load the dataset ####
+load("~/Library/CloudStorage/Dropbox/hotspots_2025/8.RData/denmex_chains.RData")
+
+# Step 2. load the function ####
+source("~/Library/CloudStorage/Dropbox/r_developments/r_dashboards/netlify/1.2.persisten_dengue_transmission_2026/persistent_dengue_transmission_24_slp/mp_heatmap.R")
+library(sf)
+library(mapgl)
+mp_heatmap(geocoded_dataset = xy,
+           yrs = c(2016:2024),
+           cve_edo = "24",
+           locality = "San Luis Potosí")
+```
+:::
+
+</div>
+:::::::::::::::::::::
+
+
+
 ### [**Ciudad Valles**]{style="color:#990000"}
 
 <html>
