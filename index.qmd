@@ -11,8 +11,10 @@ theme: custom.scss
 ::: panel-tabset
 
 ### [**San Luis Potosí**]{style="color:#990000"}
+
 <html>
 <head>
+
 ```{=html}
 <style>
 * {
@@ -100,7 +102,7 @@ theme: custom.scss
 ::::::::::::::::::::: responsive-grid
 
 <!-- COLUMNA 1: Distribución de Casos -->
-<div class="columna"><div class="column-header"> 📊 DISTRIBUCIÓN DE CASOS POR SEMANA EPIDEMIOLÓGICA </div><!-- MAPA 3 (Fila 1, columna 1 - Casos) -->
+<div class="columna"><div class="column-header"> 📊 DISTRIBUCIÓN DE CASOS POR SEMANA EPIDEMIOLÓGICA </div>
 
 ::: grid-card
 2023-2025
