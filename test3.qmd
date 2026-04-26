@@ -61,6 +61,7 @@ theme: custom.scss
   background: white;
   transition: transform 0.2s, box-shadow 0.2s;
   box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  overflow: hidden;  /* Evita desbordamiento */
 }
 
 .grid-card:hover {
@@ -68,12 +69,14 @@ theme: custom.scss
   box-shadow: 0 8px 15px rgba(0,0,0,0.1);
 }
 
-/* Asegura que los mapas tengan tamaño consistente */
+/* Asegura que los mapas tengan tamaño consistente y estén centrados */
 .grid-card .html-widget,
 .grid-card iframe {
-  width: 240% !important;
+  width: 100% !important;  /* Cambiado de 240% a 100% */
   height: 400px !important;
   border-radius: 8px;
+  display: block;
+  margin: 0 auto;  /* Centra horizontalmente */
 }
 
 /* Responsive: en móviles, una sola columna */
@@ -96,9 +99,11 @@ theme: custom.scss
 ```
 ::::::::::::::::::::: responsive-grid
 
-<!-- COLUMNA 1: Distribución de Casos --><div class="columna"><div class="column-header"> 📊 DISTRIBUCIÓN DE CASOS POR SEMANA EPIDEMIOLÓGICA </div><!--
+<!-- COLUMNA 1: Distribución de Casos -->
+<div class="columna"><div class="column-header"> 📊 DISTRIBUCIÓN DE CASOS POR SEMANA EPIDEMIOLÓGICA </div>
 
 <!-- MAPA 3 (Fila 1, columna 1 - Casos) -->
+
 ::: grid-card
 2023-2025
 
